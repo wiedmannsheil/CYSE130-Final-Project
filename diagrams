@@ -1,1 +1,34 @@
+                          +-------------------------------+
+                          |  **Cybersecurity Automation**  |
+                          +-------------------------------+
+                          | - Monitors System Performance  |
+                          | - Analyzes Log Files           |
+                          | - Sends Alerts                |
+                          | - Automates Security Scans    |
+                          | - Monitors Network Traffic    |
+                          +-------------------------------+
+                                    |
+            -------------------------------------------------------------
+            |                  |                  |                  |
+  +----------------+    +----------------+    +----------------+    +----------------+  
+  | **Log Analysis** |    | **System Monitoring** |    | **Alert Generation** |    | **Security Automation** |
+  +----------------+    +----------------+    +----------------+    +----------------+  
+  | - system_log    |    | - CPU Usage     |    | - sender_email  |    | - Target IP      |
+  | - summary_report|    | - Memory Usage  |    | - recipient_email|    | - Open Ports     |
+  +----------------+    +----------------+    +----------------+    +----------------+  
+  | + readLog()     |    | + monitorCPU()  |    | + sendAlert()    |    | + runNmapScan()  |
+  | + analyzeLog()  |    | + monitorRAM()  |    | + formatEmail()  |    | + saveResults()  |
+  | + createReport()|    | + logData()     |    +----------------+    +----------------+  
+  +----------------+    +----------------+
+                                    |
+                            +----------------+
+                            | **Network Traffic** |
+                            +----------------+
+                            | - Source IP       |
+                            | - Destination IP  |
+                            +----------------+
+                            | + monitorTraffic()|
+                            | + logPackets()    |
+                            +----------------+
+
 https://gmuedu-my.sharepoint.com/:b:/g/personal/dipek_gmu_edu/ERvyU3lDDT9OrclIL8Q5Qt0BftwmrjTdWrFClup0Pj8owQ
