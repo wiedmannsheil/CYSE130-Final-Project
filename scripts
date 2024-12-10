@@ -1,1 +1,151 @@
+     Log File Analysis  # Used random sample files from the internet 
 
+def analyze_logs(system_log):  
+
+try: 
+
+Logs = [] 
+
+with open('system_log.log', 'r') as file:  
+
+Logs = file.readlines() 
+
+Suspicious_logs = [log for log in logs if 'failed' in log.lower() or 'unauthorized' in log.lower()] 
+
+ 
+
+with open('summary_report.txt', 'w') as f: 
+
+f.write(f"Total suspicious logs found: {len(suspicious_logs)}\n") 
+
+for log in suspicious_logs: 
+
+f.write(log + '\n') 
+
+return "Log analysis completed. Summary written to summary_report.txt." 
+
+ 
+
+    System Monitoring 
+
+ 
+
+Import psutil 
+
+ 
+
+suspicious_logs = [] 
+
+ for log in logs:  
+
+if '[error]' in log or 'error state' in log:  
+
+suspicious_logs.append(log) 
+
+def monitor_system(): 
+
+try: 
+
+cpu_usage = psutil.cpu_percent(interval=1) 
+
+memory_info = psutil.virtual_memory() 
+
+ 
+
+with open('performance_log.txt', 'a') as f: 
+
+f.write(f"CPU: {cpu_usage}%, Memory: {memory_info.percent}%\n") 
+
+if cpu_usage > 90: 
+
+return "ALERT: High CPU usage detected!" 
+
+return "System performance logged successfully." 
+
+ 
+
+    Alert Generation 
+
+import smtplib 
+
+from email.message import EmailMessage 
+
+with open('summary_report.txt', 'w') as f:  
+
+f.write(f"Total suspicious logs found:  {len(suspicious_logs)}\n\n")  
+
+f.write("Details of suspicious logs:\n") 
+
+ 	for log in suspicious_logs:  
+
+f.write(log)  
+
+ 
+
+print("Summary report generated: summary_report.txt") 
+
+def send_alert(subject, body, sender_email, sender_password, recipient_email): 
+
+try: 
+
+msg = EmailMessage() 
+
+msg.set_content(body) 
+
+msg['Subject'] = subject 
+
+msg['From'] = sender_email  
+
+msg['To'] = recipient_email 
+
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp: 
+
+smtp.login(sender_email, sender_password) 
+
+smtp.send_message(msg) 
+
+return "Alert sent successfully." 
+
+ 
+
+    Security Automation 
+
+ 
+
+import subprocess 
+
+def run_nmap(target): 
+
+try: 
+
+result = subprocess.run(['nmap', '-sV', target], capture_output=True, text=True) 
+
+with open('nmap_scan_results.txt', 'w') as f: 
+
+f.write(result.stdout) 
+
+return "Nmap scan completed. Results saved to nmap_scan_results.txt." 
+
+    Network Traffic Monitoring 
+
+ 
+
+from scapy.all import sniff, TCP, IP 
+
+ 
+
+def monitor_packets(packet_count=10): 
+
+try: 
+
+def packet_callback(pkt): 
+
+if pkt.haslayer(TCP) and pkt.haslayer(IP): 
+
+with open('network_traffic_log.txt', 'a') as f: 
+
+f.write(f"Source IP: {pkt[IP].src}, Destination IP: {pkt[IP].dst}\n") 
+
+sniff(prn=packet_callback, count=packet_count) 
+
+return "Packet monitoring completed. Logs saved to network_traffic_log.txt." 
